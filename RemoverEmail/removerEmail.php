@@ -13,4 +13,22 @@
         <input type="submit" value="Descadastrar">
     </form>
 </body>
+
+<?php
+
+    $email = $_POST['email'];
+
+    include_once conexaoComBD.php;
+
+    $query = "DELETE FROM usuarioCadastrado WHERE email=$email";
+
+    mysqli_query($dbc, $query) or die ('Erro ao remover email cadastrado.');
+
+    echo 'Usuário removido com sucesso!';
+
+    mysqli_close($dbc);
+
+    // A verdade é que nem sei se este código realmente funcionará.
+    // Por enquanto ficará na imensidão do vazio.
+?>
 </html>
